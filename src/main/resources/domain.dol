@@ -1,0 +1,21 @@
+package eu.trentorise.smartcampus.domain.pois;
+
+import it.sayservice.platform.compiler.domain.model.annotations.ServiceNotification;
+import it.sayservice.platform.compiler.domain.model.annotations.Subscription;
+
+import eu.trentorise.smartcampus.domain.discovertrento.POIService;
+import eu.trentorise.smartcampus.domain.discovertrento.GenericPOI;
+
+
+DomainObject DBPOIService implements POIService {
+    
+    @ServiceNotification(serviceId="eu.trentorise.smartcampus.services.pois.ServicesPois", methodName="GetPois", converter="eu.trentorise.smartcampus.domain.pois.converter.PoiDataConverter")
+    port update(data : GenericPOI[]);
+
+    @Subscription(serviceId="eu.trentorise.smartcampus.services.pois.ServicesPois", methodName="GetPois")
+    operation subscribePois(serviceId: String);
+    
+    action initialize() {
+		  invoke subscribePois("eu.trentorise.smartcampus.services.pois.ServicesPois");       
+    }
+}
