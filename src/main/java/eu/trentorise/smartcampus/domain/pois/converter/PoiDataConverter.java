@@ -72,6 +72,7 @@ public class PoiDataConverter  implements DataConverter {
 		poiData.setRegion(poi.getAddress().getRegion());
 		poiData.setCountry(poi.getAddress().getCountry());
 		poiData.setState(poi.getAddress().getState());
+		poiData.setPoiId(poi.getPoiId());
 		return poiData;
 	}
 
