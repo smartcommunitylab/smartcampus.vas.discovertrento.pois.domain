@@ -30,7 +30,7 @@
 					<instructions>
 						<Include-Resource>{maven-resources}</Include-Resource>
 						<Export-Package>eu.trentorise.smartcampus.domain.pois.*</Export-Package>
-						<Import-Package>!smartcampus.platform.compiler.*,*</Import-Package>
+						<Import-Package>*</Import-Package>
 					</instructions>
 				</configuration>
 			</plugin>
